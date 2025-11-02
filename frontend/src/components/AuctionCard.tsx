@@ -36,6 +36,9 @@ interface AuctionCardProps {
     isWatched: boolean;
     timeRemaining: number;
   };
+  isActive?: boolean;
+  onNext?: () => void;
+  onPrevious?: () => void;
   onSwipeLeft?: () => void;
   onSwipeRight?: () => void;
   onBid?: (auctionId: number) => void;
@@ -45,6 +48,9 @@ interface AuctionCardProps {
 
 const AuctionCard: React.FC<AuctionCardProps> = ({
   auction,
+  isActive: _isActive,
+  onNext: _onNext,
+  onPrevious: _onPrevious,
   onSwipeLeft,
   onSwipeRight,
   onBid,
@@ -80,7 +86,7 @@ const AuctionCard: React.FC<AuctionCardProps> = ({
     }).format(price);
   };
 
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_event: any, info: any) => {
     const threshold = 100;
     
     if (info.offset.x > threshold) {

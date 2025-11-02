@@ -1,17 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ChevronUpIcon, 
-  ChevronDownIcon, 
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  HeartIcon,
-  UserIcon
-} from '@heroicons/react/24/outline';
 import AuctionCard from './components/AuctionCard';
 import CategoryFilter from './components/CategoryFilter';
 import { fetchAuctions, fetchCategories } from './services/api';
-import type { AuctionFilters } from './services/api';
 
 interface Auction {
   id: number;

@@ -13,8 +13,8 @@ interface Category {
 
 interface CategoryFilterProps {
   categories: Category[];
-  selectedCategory: string | null;
-  onCategorySelect: (categoryId: string | null) => void;
+  selectedCategory: number | null;
+  onCategorySelect: (categoryId: number | null) => void;
 }
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({
@@ -43,9 +43,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
           <motion.button
             key={category.id}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onCategorySelect(category.id.toString())}
+            onClick={() => onCategorySelect(category.id)}
             className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center space-x-2 ${
-              selectedCategory === category.id.toString()
+              selectedCategory === category.id
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
             }`}
